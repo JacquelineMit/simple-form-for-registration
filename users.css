@@ -1,0 +1,84 @@
+.users-card {
+  max-width: 1100px;
+  min-width: 0;
+}
+
+.user-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.user-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.users-card input, .users-card button {
+  margin: 0;
+}
+
+.users-card select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #a5bdac;
+  border-radius: 8px;
+  color: inherit;
+  background: #f8fbf9;
+  font: inherit;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #d4e3d8;
+  text-align: left;
+}
+
+th {
+  background: #edf4ef;
+}
+
+td input[readonly], td select:disabled {
+  border-color: transparent;
+  background: transparent;
+  opacity: 1;
+  color: inherit;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.row-actions button {
+  width: auto;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.secondary {
+  color: #365e43;
+  background: #edf4ef;
+}
+
+.secondary:hover {
+  background: #d4e3d8;
+}
+
+.empty-state {
+  padding: 32px 8px;
+  color: #566d60;
+  text-align: center;
+}

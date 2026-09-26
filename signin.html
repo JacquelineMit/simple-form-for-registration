@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="auth-card">
+      <h1>Вход</h1>
+      <p>Рады видеть вас снова</p>
+
+      <form
+        id="signin"
+        class="auth-form"
+        data-action="signin"
+        method="post"
+        novalidate
+      >
+        <label for="email">Почта</label>
+        <input id="email" name="email" type="email" autocomplete="username" />
+
+        <label for="password">Пароль</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+        />
+
+        <button type="submit">Войти</button>
+      </form>
+
+      <p class="auth-link">
+        Нет аккаунта? <a href="signup.html">Зарегистрироваться</a>
+      </p>
+    </main>
+  </body>
+</html>
