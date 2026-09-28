@@ -24,7 +24,8 @@ async function deleteUser(id) {
     body: formData,
     credentials: "include",
   });
-  renderUsers([]);
+  const data = await fet.json();
+  renderUsers(data);
 }
 
 async function editUser(id, user) {
@@ -36,26 +37,26 @@ async function editUser(id, user) {
     credentials: "include",
   });
   const data = await fet.json();
-  renderUsers(data);
+  renderUsers([data.result]);
 }
 
 async function fetchUser(user) {
-  const res = await fetch("http://127.0.0.1:3000/user/get", {
+  const fet = await fetch("http://127.0.0.1:3000/user/get", {
     method: "GET",
     body: user,
     credentials: "include",
   });
-  const data = await res.json();
+  const data = await fet.json();
   renderUsers(data);
 }
 
 async function fetchUsers(users) {
-  const res = await fetch("http://127.0.0.1:3000/users/get", {
+  const fet = await fetch("http://127.0.0.1:3000/users/get", {
     method: "GET",
     body: users,
     credentials: "include",
   });
-  const data = await res.json();
+  const data = await fet.json();
   renderUsers(data);
 }
 
