@@ -5,59 +5,48 @@ const emptyState = usersList.firstElementChild.cloneNode(true);
 
 // Пустые функции для будущей реализации работы с пользователями.
 async function addUser(user) {
-  const fet = await fetch("http://127.0.0.1:3000/user/create", {
+  await fetch("http://127.0.0.1:3000/user/create", {
     method: "POST",
     body: user,
     credentials: "include",
   });
-  const data = await fet.json();
-  renderUsers([data.result]);
-  console.log(data);
+  await fetchUsers();
 }
 
 async function deleteUser(id) {
   const formData = new FormData();
   formData.append("id", id);
 
-  const fet = await fetch("http://127.0.0.1:3000/user/delete", {
+  await fetch("http://127.0.0.1:3000/user/delete", {
     method: "DELETE",
     body: formData,
     credentials: "include",
   });
-  const data = await fet.json();
-  renderUsers(data);
+  fetchUsers();
 }
 
 async function editUser(id, user) {
   const formData = new FormData();
   formData.append("id", id);
-  const fet = await fetch("http://127.0.0.1:3000/user/update", {
+  formData.append("name", user.name);
+  formData.append("email", user.email);
+  formData.append("phone", user.phone);
+  formData.append("gender", user.gender);
+  await fetch("http://127.0.0.1:3000/user/update", {
     method: "PUT",
     body: formData,
     credentials: "include",
   });
-  const data = await fet.json();
-  renderUsers([data.result]);
+  fetchUsers();
 }
 
-async function fetchUser(user) {
-  const fet = await fetch("http://127.0.0.1:3000/user/get", {
-    method: "GET",
-    body: user,
-    credentials: "include",
-  });
-  const data = await fet.json();
-  renderUsers(data);
-}
-
-async function fetchUsers(users) {
+async function fetchUsers() {
   const fet = await fetch("http://127.0.0.1:3000/users/get", {
     method: "GET",
-    body: users,
     credentials: "include",
   });
   const data = await fet.json();
-  renderUsers(data);
+  renderUsers(data.result);
 }
 
 addUserForm.addEventListener("submit", (event) => {
