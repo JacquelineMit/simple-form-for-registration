@@ -117,4 +117,21 @@ function renderUsers(users) {
   });
 }
 
-fetchUsers();
+async function checkAuth() {
+  const result = await fetch("http://127.0.0.1:5500/autho/me", {
+    method: "GET",
+    credentials: "include",
+  });
+  return result.ok;
+}
+
+async function Autho() {
+  const isAutho = await checkAuth();
+  if (!isAutho) {
+    window.location.href = "signin.html";
+    return;
+  }
+  fetchUsers();
+}
+
+Autho();
