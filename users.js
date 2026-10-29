@@ -118,10 +118,11 @@ function renderUsers(users) {
 }
 
 async function checkAuth() {
-  const result = await fetch("http://127.0.0.1:5500/autho/me", {
+  const result = await fetch("http://127.0.0.1:3000/autho/me", {
     method: "GET",
     credentials: "include",
   });
+
   return result.ok;
 }
 
