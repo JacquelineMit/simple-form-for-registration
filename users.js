@@ -125,7 +125,7 @@ async function checkAuth() {
   return result.ok;
 }
 
-async function Autho() {
+async function checkAuthAndRedirect() {
   const isAutho = await checkAuth();
   if (!isAutho) {
     window.location.href = "signin.html";
@@ -134,4 +134,4 @@ async function Autho() {
   fetchUsers();
 }
 
-Autho();
+checkAuthAndRedirect();
